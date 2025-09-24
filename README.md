@@ -54,3 +54,9 @@
 - 👩‍🎓 학습자 맞춤형 계획 (초보자 / 중급자 / 고급자) 제안  
 - 🗄️ 데이터베이스 연결해서 학습 진도 저장  
 - 👨‍👩‍👧 조직 단위로 활용할 수 있는 관리자 화면 만들기  
+
+
+
+https://youtu.be/yytWGELNeOI?si=6ZGcn5umyJb_pMC0
+https://youtu.be/lHLRBFYNQH8?si=-_tr3Salat3SYNnh
+https://www.udemy.com/course/web-python-flask-web-framework/
