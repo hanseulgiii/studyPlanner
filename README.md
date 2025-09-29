@@ -56,20 +56,27 @@ studyPlanner-1/
 ```bash
 git clone https://github.com/yourname/studyPlanner-1.git
 cd studyPlanner-1
-2. 가상환경 및 패키지 설치
+```
+
+### 2. 가상환경 및 패키지 설치
+```bash
 bashpython -m venv .venv
 source .venv/Scripts/activate   # (Windows PowerShell)
 pip install -r requirements.txt
-3. 환경변수 파일 설정
+```
 
+### 3. 환경변수 파일 설정
 .env.example을 복사해서 .env 파일 생성
 Azure OpenAI 리소스에서 발급받은 값 입력
-
+```bash
 envAZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com/
 AZURE_OPENAI_API_KEY=your_api_key_here
 AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
-4. 앱 실행
+```
+### 4. 앱 실행
+```bash
 bashstreamlit run app.py
+```
 → 실행 후 http://localhost:8501 에 접속
 
 ### 🎥 라이브 데모 
@@ -79,18 +86,11 @@ bashstreamlit run app.py
 - **실행 방법**  
   - 💻 로컬에서 Streamlit 실행  
   - 🌐 Azure Web App에 배포해서 접속  
-
 ---
 
-### 🚀 앞으로 하고 싶은 것 
-- 🎧 동영상 자막까지 가져와서 더 똑똑하게 요약하기   
+### 🚀 앞으로 하고 싶은 것  
 - 🔍 Azure AI Search 연결해서 자료 검색 가능하게 만들기  
 - 👩‍🎓 학습자 맞춤형 계획 (초보자 / 중급자 / 고급자) 제안  
 - 🗄️ 데이터베이스 연결해서 학습 진도 저장  
-- 👨‍👩‍👧 조직 단위로 활용할 수 있는 관리자 화면 만들기  
+- 임직원 교육 플랫폼에 적용하기(직무나 조직 기준으로 관리)
 
-
-
-https://youtu.be/yytWGELNeOI?si=6ZGcn5umyJb_pMC0
-https://youtu.be/lHLRBFYNQH8?si=-_tr3Salat3SYNnh
-https://www.udemy.com/course/web-python-flask-web-framework/
