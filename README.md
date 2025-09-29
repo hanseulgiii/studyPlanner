@@ -138,10 +138,8 @@ streamlit run app.py
 ---
 
 ### 시연 영상
-<video controls>
-  <source src="studyPlanner_mvp_hsg.mp4" type="video/mp4">
-</video>
-
+https://github.com/user-attachments/assets/12129707-c306-4f1c-b901-cf51a1af9a65
+---
 ### 🚀 앞으로 하고 싶은 것  
 - 🔍 Azure AI Search 연결해서 자료 검색 가능하게 만들기  
 - 👩‍🎓 학습자 맞춤형 계획 (초보자 / 중급자 / 고급자) 제안  
