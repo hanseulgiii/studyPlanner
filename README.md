@@ -138,7 +138,9 @@ streamlit run app.py
 ---
 
 ### 시연 영상
+
 https://github.com/user-attachments/assets/12129707-c306-4f1c-b901-cf51a1af9a65
+
 ---
 ### 🚀 앞으로 하고 싶은 것  
 - 🔍 Azure AI Search 연결해서 자료 검색 가능하게 만들기  
