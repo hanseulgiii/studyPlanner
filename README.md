@@ -139,14 +139,11 @@ streamlit run app.py
   - 🌐 Azure Web App에 배포해서 접속  
 ---
 
-<<<<<<< HEAD
-=======
 ### 🎬 시연 영상
 
 https://github.com/user-attachments/assets/12129707-c306-4f1c-b901-cf51a1af9a65
 
 ---
->>>>>>> b28b173c337697e91efc254579cffa82729d8981
 ### 🚀 앞으로 하고 싶은 것  
 - 🔍 Azure AI Search 연결해서 자료 검색 가능하게 만들기 
 - 🎥 Azure Video Indexer를 연동해서, 자동 자막·키워드·심층 요약 기반 맞춤형 학습 가능하게 만들기. 
