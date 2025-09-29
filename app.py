@@ -5,9 +5,12 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from planner import generate_plan, get_feedback
 
+# -------------------------------
+# 페이지 설정 (타이틀/파비콘)
+# -------------------------------
 st.set_page_config(
-    page_title="AI 스마트 학습 로드맵 플래너",   # 브라우저 탭 타이틀
-    page_icon="🎓",  # 이모지 가능, 또는 이미지 경로/URL도 가능
+    page_title="AI 스마트 학습 로드맵 플래너",
+    page_icon="🎓",
 )
 
 # -------------------------------
@@ -21,7 +24,7 @@ st.markdown("""
         min-width: 100px !important;
         max-width: 100px !important;
     }
-    /* 버튼 간격 동일 */
+    /* 버튼 간격 동일 */st
     .stButton button {
         margin-right: 12px !important;
     }
@@ -49,9 +52,9 @@ if "quiz_score" not in st.session_state:
 # -------------------------------
 # 입력 UI
 # -------------------------------
-urls = st.text_area("동영상 URL을 여러개 입력하세요 (줄바꿈으로 구분)", height=150)
+urls = st.text_area("동영상 URL을 여러 개 입력하세요 (줄바꿈으로 구분)", height=150)
 
-# 버튼 + 셀렉트박스 한 줄 배치 (flex로 묶음)
+# 버튼 + 셀렉트박스 한 줄 배치
 col1, col2, col3 = st.columns([1, 1, 2])
 btn_order = col1.button("📜 학습 순서 추천")
 btn_plan = col2.button("🗓️ 학습 플랜 생성")
@@ -113,25 +116,29 @@ def resolve_thumbnail(url: str) -> str:
 if url_list:
     # 학습 순서 추천
     if btn_order:
-        st.session_state.result = generate_plan(url_list, num_questions=quiz_num)
+        with st.spinner("🧠 학습 순서를 계산 중이에요... 잠시만 기다려주세요! ✨"):
+            st.session_state.result = generate_plan(url_list, num_questions=quiz_num)
+
         st.subheader("📜 추천 학습 순서")
         for item in st.session_state.result.get("ordered_videos", []):
             thumb_url = resolve_thumbnail(item["url"])
-            col1, col2 = st.columns([1, 3])
-            with col1:
+            c_img, c_txt = st.columns([1, 3])
+            with c_img:
                 st.markdown(
                     f'<a href="{item["url"]}" target="_blank">'
                     f'<img src="{thumb_url}" width="300" style="border-radius:12px;"/></a>',
                     unsafe_allow_html=True,
                 )
-            with col2:
+            with c_txt:
                 st.markdown(f"### [{item['title_guess']}]({item['url']})")
                 st.write(f"📝 이유: {item['reason']}")
             st.markdown("---")
 
     # 학습 플랜
     if btn_plan:
-        st.session_state.result = generate_plan(url_list, num_questions=quiz_num)
+        with st.spinner("📅 학습 플랜을 만드는 중이에요... 곧 완성돼요! ⏳"):
+            st.session_state.result = generate_plan(url_list, num_questions=quiz_num)
+
         st.subheader("🗓️ 학습 플랜")
         for day in st.session_state.result.get("study_plan", []):
             with st.expander(f"Day {day['day']}"):
@@ -145,12 +152,13 @@ if url_list:
 
     # 퀴즈 생성 시작
     if btn_quiz:
-        st.session_state.result = generate_plan(url_list, num_questions=quiz_num)
-        st.session_state.quiz_started = True
-        st.session_state.quiz_submitted = False
-        st.session_state.quiz_data = st.session_state.result.get("quiz", [])
-        st.session_state.quiz_answers = {}
-        st.session_state.quiz_score = 0
+        with st.spinner("🧩 퀴즈를 출제하는 중이에요... 두근두근! 🎉"):
+            st.session_state.result = generate_plan(url_list, num_questions=quiz_num)
+            st.session_state.quiz_started = True
+            st.session_state.quiz_submitted = False
+            st.session_state.quiz_data = st.session_state.result.get("quiz", [])
+            st.session_state.quiz_answers = {}
+            st.session_state.quiz_score = 0
 
     # 퀴즈 화면
     if st.session_state.quiz_started:
@@ -184,19 +192,26 @@ if url_list:
 
         if not st.session_state.quiz_submitted:
             if st.button("제출하기"):
-                score = 0
-                for i, q in enumerate(st.session_state.quiz_data, 1):
-                    if st.session_state.quiz_answers.get(i) == q["answer"]:
-                        score += 1
-                st.session_state.quiz_score = score
-                st.session_state.quiz_submitted = True
+                with st.spinner("채점 중이에요... ✍️"):
+                    score = 0
+                    for i, q in enumerate(st.session_state.quiz_data, 1):
+                        if st.session_state.quiz_answers.get(i) == q["answer"]:
+                            score += 1
+                    st.session_state.quiz_score = score
+                    st.session_state.quiz_submitted = True
                 st.rerun()
 
         if st.session_state.quiz_submitted:
             score = st.session_state.quiz_score
             st.success(f"총 {len(st.session_state.quiz_data)}문항 중 {score}점!")
 
-            feedback = get_feedback(score, len(st.session_state.quiz_data), st.session_state.result["ordered_videos"])
+            with st.spinner("맞춤 피드백을 생성하는 중... 🧭"):
+                feedback = get_feedback(
+                    score,
+                    len(st.session_state.quiz_data),
+                    st.session_state.result.get("ordered_videos", [])
+                )
+
             st.info(feedback["message"])
 
             st.markdown("### 📺 추천 영상")

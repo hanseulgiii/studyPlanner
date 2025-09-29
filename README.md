@@ -137,13 +137,9 @@ streamlit run app.py
   - 🌐 Azure Web App에 배포해서 접속  
 ---
 
-### 시연 영상
-<video controls>
-  <source src="studyPlanner_mvp_hsg.mp4" type="video/mp4">
-</video>
-
 ### 🚀 앞으로 하고 싶은 것  
-- 🔍 Azure AI Search 연결해서 자료 검색 가능하게 만들기  
+- 🔍 Azure AI Search 연결해서 자료 검색 가능하게 만들기 
+- 🎥 Azure Video Indexer를 연동해서, 자동 자막·키워드·심층 요약 기반 맞춤형 학습 가능하게 만들기. 
 - 👩‍🎓 학습자 맞춤형 계획 (초보자 / 중급자 / 고급자) 제안  
 - 🗄️ 데이터베이스 연결해서 학습 진도 저장  
 - 임직원 교육 플랫폼에 적용하기(직무나 조직 기준)
