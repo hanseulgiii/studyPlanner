@@ -38,6 +38,48 @@
 
 ---
 
+# 🔑 핵심 기술 포인트
+
+* 💡 **AI 프롬프트**
+  * "순서 + 계획 + 퀴즈를 JSON으로 만들어줘" 라고 요청
+* ☁️ **Azure OpenAI**
+  * 마이크로소프트 클라우드에서 AI 모델 사용
+* 🗂️ **간단한 구조**
+  * `app.py` (화면) + `planner.py` (AI 요청)
+  * 최소한의 파일로 빠르게 만들 수 있음
+
+## 📂 프로젝트 구조
+studyPlanner-1/
+├─ app.py              # Streamlit 메인 UI
+├─ planner.py          # OpenAI API 호출 및 플랜/퀴즈 생성 로직
+├─ .env                # 실제 환경변수 (gitignore로 제외)
+├─ .env.example        # 공유용 환경변수 템플릿
+├─ requirements.txt    # 필요한 패키지 목록
+├─ README.md           # 프로젝트 설명 문서
+└─ .gitignore          # 민감정보/캐시 제외 설정
+
+## 🚀 실행 방법
+
+### 1. 저장소 클론 & 진입
+```bash
+git clone https://github.com/yourname/studyPlanner-1.git
+cd studyPlanner-1
+2. 가상환경 및 패키지 설치
+bashpython -m venv .venv
+source .venv/Scripts/activate   # (Windows PowerShell)
+pip install -r requirements.txt
+3. 환경변수 파일 설정
+
+.env.example을 복사해서 .env 파일 생성
+Azure OpenAI 리소스에서 발급받은 값 입력
+
+envAZURE_OPENAI_ENDPOINT=https://<your-resource>.openai.azure.com/
+AZURE_OPENAI_API_KEY=your_api_key_here
+AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+4. 앱 실행
+bashstreamlit run app.py
+→ 실행 후 http://localhost:8501 에 접속
+
 ### 🎥 라이브 데모 
 - **보여줄 것**  
   - 🔗 동영상 링크 여러 개 입력  
