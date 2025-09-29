@@ -27,6 +27,55 @@
 
 ---
 
+
+### 🏗️ 파일별 담당 역할
+
+## 1️⃣ app.py (프론트엔드/UI)
+- **Streamlit 기반 UI**  
+  - 동영상 URL 입력, 버튼 클릭으로 기능 실행  
+  - 버튼: 📜 학습 순서 추천 / 🗓️ 학습 플랜 생성 / 🧩 학습 퀴즈 생성  
+  - SelectBox로 퀴즈 개수 선택 가능  
+- **출력 기능**  
+  - 학습 순서 → 썸네일 + 제목 + 이유  
+  - 학습 플랜 → Day별 목표/과제/복습  
+  - 학습 퀴즈 → 정답은 제출 후 확인 가능  
+- **UX**  
+  - `st.spinner()` 로딩 표시  
+  - `session_state`로 퀴즈 상태 관리  
+
+## 2️⃣ planner.py (백엔드/AI 로직)
+- **Azure OpenAI 호출**  
+  - `.env`에서 API 키, 엔드포인트 불러오기  
+- **핵심 함수**
+  - `generate_plan()` → 학습 순서 + 플랜 + 퀴즈 생성  
+  - `get_feedback()` → 퀴즈 채점 결과 분석 + 추천 영상 제시  
+- **프롬프트 설계**  
+  - JSON만 출력하도록 강제 → 파싱 안정성 확보  
+
+## 3️⃣ requirements.txt (의존성)
+- 프로젝트 실행에 필요한 패키지 목록  
+  - `streamlit`, `openai`, `python-dotenv`, `requests`, `beautifulsoup4`  
+- 한 줄 설치:  
+  ```bash
+  pip install -r requirements.txt
+
+## 4️⃣ .env / .env.example (환경변수)
+- .env
+  - 실제 API 키와 엔드포인트 저장
+  - 보안상 .gitignore에 추가해서 GitHub에 올리지 않음
+- .env.example
+  - 공유용 템플릿
+  - API 키 대신 your_api_key_here 같은 placeholder 작성
+
+## 5️⃣ README.md (문서)
+- 프로젝트 소개 문서
+  - 개요, 아키텍처, 실행 방법, 향후 개선 계획 정리
+- 용도
+  - 발표 자료처럼 활용 가능
+  - 깃허브 첫 화면에서 프로젝트 설명 제공
+
+---
+
 ### 🔑 핵심 기술 포인트
 - 💡 **AI 프롬프트**  
   - "순서 + 계획 + 퀴즈를 JSON으로 만들어줘" 라고 요청  
