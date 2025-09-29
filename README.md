@@ -14,6 +14,19 @@
 
 ---
 
+## 📂 프로젝트 구조
+```bash
+studyPlanner-1/
+├─ app.py              # Streamlit 메인 UI
+├─ planner.py          # OpenAI API 호출 및 플랜/퀴즈 생성 로직
+├─ .env                # 실제 환경변수 (gitignore로 제외)
+├─ .env.example        # 공유용 환경변수 템플릿
+├─ requirements.txt    # 필요한 패키지 목록
+├─ README.md           # 프로젝트 설명 문서 
+└─ .gitignore          # 민감정보/캐시 제외 설정
+```
+---
+
 ### 🏗️ 아키텍처 다이어그램
 - **사용한 것들**  
   - 💻 **Streamlit**: 화면(UI)  
@@ -27,8 +40,7 @@
 
 ---
 
-
-### 🏗️ 파일별 담당 역할
+### ⚙️ 파일별 담당 역할
 
 ## 1️⃣ app.py (프론트엔드/UI)
 - **Streamlit 기반 UI**  
@@ -58,6 +70,7 @@
 - 한 줄 설치:  
   ```bash
   pip install -r requirements.txt
+  ```
 
 ## 4️⃣ .env / .env.example (환경변수)
 - .env
@@ -87,19 +100,6 @@
 
 ---
 
-## 📂 프로젝트 구조
-```bash
-studyPlanner-1/
-├─ app.py              # Streamlit 메인 UI
-├─ planner.py          # OpenAI API 호출 및 플랜/퀴즈 생성 로직
-├─ .env                # 실제 환경변수 (gitignore로 제외)
-├─ .env.example        # 공유용 환경변수 템플릿
-├─ requirements.txt    # 필요한 패키지 목록
-├─ README.md           # 프로젝트 설명 문서 
-└─ .gitignore          # 민감정보/캐시 제외 설정
-```
----
-
 ## 🚀 실행 방법
 ### 1. 저장소 클론 & 진입
 ```bash
@@ -109,7 +109,7 @@ cd studyPlanner-1
 
 ### 2. 가상환경 및 패키지 설치
 ```bash
-bashpython -m venv .venv
+python -m venv .venv
 source .venv/Scripts/activate   # (Windows PowerShell)
 pip install -r requirements.txt
 ```
@@ -124,7 +124,7 @@ AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
 ```
 ### 4. 앱 실행
 ```bash
-bashstreamlit run app.py
+streamlit run app.py
 ```
 → 실행 후 http://localhost:8501 에 접속
 
