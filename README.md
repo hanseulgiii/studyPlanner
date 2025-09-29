@@ -14,7 +14,7 @@
 
 ---
 
-## 📂 프로젝트 구조
+### 📂 프로젝트 구조
 ```bash
 studyPlanner-1/
 ├─ app.py              # Streamlit 메인 UI
@@ -100,21 +100,21 @@ studyPlanner-1/
 
 ---
 
-## 🚀 실행 방법
-### 1. 저장소 클론 & 진입
+### 🚀 실행 방법
+## 1. 저장소 클론 & 진입
 ```bash
 git clone https://github.com/yourname/studyPlanner-1.git
 cd studyPlanner-1
 ```
 
-### 2. 가상환경 및 패키지 설치
+## 2. 가상환경 및 패키지 설치
 ```bash
 python -m venv .venv
 source .venv/Scripts/activate   # (Windows PowerShell)
 pip install -r requirements.txt
 ```
 
-### 3. 환경변수 파일 설정
+## 3. 환경변수 파일 설정
 .env.example을 복사해서 .env 파일 생성
 Azure OpenAI 리소스에서 발급받은 값 입력
 ```bash
@@ -128,6 +128,8 @@ streamlit run app.py
 ```
 → 실행 후 http://localhost:8501 에 접속
 
+---
+
 ### 🎥 라이브 데모 
 - **보여줄 것**  
   - 🔗 동영상 링크 여러 개 입력  
@@ -137,7 +139,7 @@ streamlit run app.py
   - 🌐 Azure Web App에 배포해서 접속  
 ---
 
-### 시연 영상
+### 🎬 시연 영상
 
 https://github.com/user-attachments/assets/12129707-c306-4f1c-b901-cf51a1af9a65
 
