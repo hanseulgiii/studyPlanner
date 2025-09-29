@@ -24,33 +24,14 @@ st.markdown("""
         min-width: 100px !important;
         max-width: 100px !important;
     }
-    /* 버튼 간격 동일 */
+    /* 버튼 간격 동일 */st
     .stButton button {
         margin-right: 12px !important;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# -------------------------------
-# 상단 소개 카드
-# -------------------------------
-st.markdown(
-    """
-    <div style="
-        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-        color: white;
-        padding: 20px;
-        border-radius: 12px;
-        margin-bottom: 20px;
-    ">
-        <h2 style="margin:0;">🎓 AI 스마트 학습 로드맵 플래너</h2>
-        <p style="margin:0; font-size:15px;">
-            동영상 URL을 입력하면 AI가 <b>학습 순서</b>, <b>플랜</b>, <b>퀴즈</b>를 자동으로 만들어드려요! 🚀
-        </p>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+st.title("🤖 AI 스마트 학습 로드맵 플래너")
 
 # -------------------------------
 # 세션 상태 초기화
@@ -68,13 +49,15 @@ if "quiz_answers" not in st.session_state:
 if "quiz_score" not in st.session_state:
     st.session_state.quiz_score = 0
 
+# -------------------------------
+# 입력 UI
+# -------------------------------
+urls = st.text_area("동영상 URL을 여러 개 입력하세요 (줄바꿈으로 구분)", height=150)
 
-urls = st.text_area("📥 동영상 URL 입력 (줄바꿈으로 구분)", height=150)
-
-# 버튼 + 옵션
+# 버튼 + 셀렉트박스 한 줄 배치
 col1, col2, col3 = st.columns([1, 1, 2])
-btn_order = col1.button("📜 학습 순서 추천", use_container_width=True)
-btn_plan = col2.button("🗓️ 학습 플랜 생성", use_container_width=True)
+btn_order = col1.button("📜 학습 순서 추천")
+btn_plan = col2.button("🗓️ 학습 플랜 생성")
 
 with col3:
     c1, c2 = st.columns([0.3, 0.7])
@@ -85,9 +68,7 @@ with col3:
         label_visibility="collapsed",
         key="quiz_num"
     )
-    btn_quiz = c2.button("🧩 학습 퀴즈 생성", use_container_width=True, key="quiz_button")
-
-st.markdown("</div>", unsafe_allow_html=True)
+    btn_quiz = c2.button("🧩 학습 퀴즈 생성", key="quiz_button")
 
 url_list = [u.strip() for u in urls.splitlines() if u.strip()] if urls.strip() else []
 if (btn_order or btn_plan or btn_quiz) and not url_list:
