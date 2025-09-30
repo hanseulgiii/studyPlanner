@@ -18,7 +18,7 @@ https://rg-sgsg-webapp-mvp-ahe8emg6dtdfh9hk.swedencentral-01.azurewebsites.net/
 
 ### 📂 프로젝트 구조
 ```bash
-studyPlanner-1/
+studyPlanner
 ├─ app.py              # Streamlit 메인 UI
 ├─ planner.py          # OpenAI API 호출 및 플랜/퀴즈 생성 로직
 ├─ .env                # 실제 환경변수 (gitignore로 제외)
@@ -105,8 +105,8 @@ studyPlanner-1/
 ### 🚀 실행 방법
 ## 1. 저장소 클론 & 진입
 ```bash
-git clone https://github.com/yourname/studyPlanner-1.git
-cd studyPlanner-1
+git clone https://github.com/yourname/studyPlanner.git
+cd studyPlanner
 ```
 
 ## 2. 가상환경 및 패키지 설치
@@ -138,7 +138,7 @@ streamlit run app.py
   - ▶️ 버튼 클릭하면 → 학습 순서 + 학습 계획 + 퀴즈가 화면에 바로 뜸  
 - **실행 방법**  
   - 💻 로컬에서 Streamlit 실행  
-  - 🌐 Azure Web App에 배포해서 접속  
+  - 🌐 Azure Web App에 배포해서 접속   
 ---
 
 ### 🎬 시연 영상
