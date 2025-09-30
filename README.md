@@ -105,7 +105,7 @@ studyPlanner
 ### 🚀 실행 방법
 ## 1. 저장소 클론 & 진입
 ```bash
-git clone https://github.com/yourname/studyPlanner.git
+git clone https://github.com/hanseulgiii/studyPlanner.git
 cd studyPlanner
 ```
 
