@@ -1,8 +1,13 @@
-import os, re, json
+import os
+import re
+import json
 from typing import Any, Dict, List, Optional
 from dotenv import load_dotenv
 from openai import AzureOpenAI
 
+# -------------------------------
+# 환경 변수 로드
+# -------------------------------
 load_dotenv()
 
 client = AzureOpenAI(
@@ -12,6 +17,9 @@ client = AzureOpenAI(
 )
 DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT")
 
+# -------------------------------
+# JSON 추출 유틸 함수
+# -------------------------------
 def _extract_json(text: str) -> Optional[Dict[str, Any]]:
     """GPT 응답에서 JSON만 뽑아내는 함수"""
     if not text:
@@ -28,6 +36,9 @@ def _extract_json(text: str) -> Optional[Dict[str, Any]]:
     except:
         return None
 
+# -------------------------------
+# 학습 플랜 생성
+# -------------------------------
 def generate_plan(video_urls: List[str], days: int = 2, num_questions: int = 4) -> Dict[str, Any]:
     """동영상 기반 학습 플랜 + 퀴즈 생성"""
     assert DEPLOYMENT, "환경변수 AZURE_OPENAI_DEPLOYMENT가 설정되지 않았습니다."
@@ -119,6 +130,9 @@ JSON 스키마(참고):
 
     return parsed if parsed else {}
 
+# -------------------------------
+# 점수 기반 피드백 생성
+# -------------------------------
 def get_feedback(score: int, total: int, ordered_videos: list) -> dict:
     """점수 기반 학습 피드백 + GPT 추천 영상"""
     ratio = score / total if total > 0 else 0
