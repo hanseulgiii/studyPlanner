@@ -145,6 +145,14 @@ streamlit run app.py
 
 https://github.com/user-attachments/assets/ed4eecdc-a36f-4bc0-87d9-9936b5fbb4d2
 
+💬 동영상 sample
+  
+https://inf.run/YS23e
+
+https://youtu.be/yytWGELNeOI?si=6ZGcn5umyJb_pMC0
+
+https://www.udemy.com/course/web-python-flask-web-framework/
+
 ---
 ### 🚀 앞으로 하고 싶은 것  
 - 🔍 Azure AI Search 연결해서 자료 검색 가능하게 만들기 
